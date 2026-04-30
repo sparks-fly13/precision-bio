@@ -127,7 +127,7 @@ const Contact = () => {
   return (
     <>
       {/* Hero */}
-      <section className="relative py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-primary-dark overflow-hidden">
+      <section className="relative py-20 bg-linear-to-br from-gray-900 via-gray-800 to-primary-dark overflow-hidden">
         <div className="absolute inset-0">
           <div className="absolute top-10 right-20 w-72 h-72 bg-primary/20 rounded-full blur-3xl" />
           <div className="absolute bottom-10 left-20 w-72 h-72 bg-secondary/15 rounded-full blur-3xl" />
@@ -161,7 +161,7 @@ const Contact = () => {
               <AnimatedSection key={item.label} delay={i * 0.1} direction="scale">
                 <div className="bg-white rounded-2xl border border-gray-100 p-6 shadow-lg hover:shadow-xl transition-shadow h-full">
                   <div
-                    className={`inline-flex p-3 bg-gradient-to-br ${item.color} rounded-xl mb-4`}
+                    className={`inline-flex p-3 bg-linear-to-br ${item.color} rounded-xl mb-4`}
                   >
                     <item.icon size={20} className="text-white" />
                   </div>
@@ -173,7 +173,7 @@ const Contact = () => {
                       href={item.href}
                       target={item.label === "Address" ? "_blank" : undefined}
                       rel={item.label === "Address" ? "noopener noreferrer" : undefined}
-                      className="text-sm font-medium text-gray-800 hover:text-primary transition-colors break-words"
+                      className="text-sm font-medium text-gray-800 hover:text-primary transition-colors wrap-break-word"
                     >
                       {item.value}
                     </a>
@@ -417,7 +417,7 @@ const Contact = () => {
                 </div>
 
                 {/* Quick Info */}
-                <div className="bg-gradient-to-br from-primary to-primary-dark rounded-3xl p-6 text-white">
+                <div className="bg-linear-to-br from-primary to-primary-dark rounded-3xl p-6 text-white">
                   <h3 className="text-sm font-bold uppercase tracking-wider mb-4">
                     Quick Contact
                   </h3>
