@@ -203,7 +203,7 @@ export const productCategories = [
 export const companyInfo = {
   name: "Precision Bioelectronics",
   tagline: "One-Stop Provider for Energy Research",
-  subtitle: "Battery Consumable Solutions – Your Trusted Supplier",
+  subtitle: "Battery Consumable Solutions - Your Trusted Supplier",
   phone: "+91 9953242466",
   email: "aksheykaushal@gmail.com",
   contactEmail: "pulkitsinhaor@gmail.com",

@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { motion } from "framer-motion";
+import emailjs from "@emailjs/browser";
 import {
   Send,
   Phone,
@@ -7,6 +8,7 @@ import {
   MapPin,
   Clock,
   CheckCircle,
+  AlertCircle,
   MessageSquare,
   User,
   Building,
@@ -16,7 +18,12 @@ import { LinkedinIcon, TwitterIcon, FacebookIcon, InstagramIcon } from "../compo
 import AnimatedSection from "../components/AnimatedSection";
 import { companyInfo } from "../data/products";
 
+const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
 const Contact = () => {
+  const formRef = useRef(null);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -25,32 +32,59 @@ const Contact = () => {
     subject: "",
     message: "",
   });
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState({ type: null, message: "" });
   const [sending, setSending] = useState(false);
 
   const handleChange = (e) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setSending(true);
+    setStatus({ type: null, message: "" });
 
-    // Build mailto link
-    const subject = encodeURIComponent(
-      formData.subject || `Inquiry from ${formData.name}`
-    );
-    const body = encodeURIComponent(
-      `Name: ${formData.name}\nEmail: ${formData.email}\nCompany: ${formData.company}\nPhone: ${formData.phone}\n\nSubject: ${formData.subject}\n\nMessage:\n${formData.message}`
-    );
+    try {
+      await emailjs.send(
+        SERVICE_ID,
+        TEMPLATE_ID,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          company: formData.company || "Not provided",
+          phone: formData.phone || "Not provided",
+          subject: formData.subject,
+          message: formData.message,
+          to_email: companyInfo.contactEmail,
+          reply_to: formData.email,
+        },
+        { publicKey: PUBLIC_KEY }
+      );
 
-    window.location.href = `mailto:${companyInfo.contactEmail}?subject=${subject}&body=${body}`;
-
-    setTimeout(() => {
+      setStatus({
+        type: "success",
+        message: "Your message has been sent successfully! We'll get back to you soon.",
+      });
+      setFormData({
+        name: "",
+        email: "",
+        company: "",
+        phone: "",
+        subject: "",
+        message: "",
+      });
+    } catch (err) {
+      console.error("EmailJS error:", err);
+      setStatus({
+        type: "error",
+        message:
+          "Failed to send message. Please try again or email us directly at " +
+          companyInfo.contactEmail,
+      });
+    } finally {
       setSending(false);
-      setSubmitted(true);
-      setTimeout(() => setSubmitted(false), 5000);
-    }, 1000);
+      setTimeout(() => setStatus({ type: null, message: "" }), 7000);
+    }
   };
 
   const contactDetails = [
@@ -170,21 +204,29 @@ const Contact = () => {
                   possible.
                 </p>
 
-                {submitted && (
+                {status.type === "success" && (
                   <motion.div
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="mb-6 p-4 bg-accent/10 border border-accent/20 rounded-xl flex items-center gap-3"
+                    className="mb-6 p-4 bg-accent/10 border border-accent/20 rounded-xl flex items-start gap-3"
                   >
-                    <CheckCircle size={20} className="text-accent shrink-0" />
-                    <p className="text-sm text-accent font-medium">
-                      Your email client should have opened with the message. If not,
-                      please email us directly at {companyInfo.contactEmail}
-                    </p>
+                    <CheckCircle size={20} className="text-accent shrink-0 mt-0.5" />
+                    <p className="text-sm text-accent font-medium">{status.message}</p>
                   </motion.div>
                 )}
 
-                <form onSubmit={handleSubmit} className="space-y-5">
+                {status.type === "error" && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="mb-6 p-4 bg-red-50 border border-red-200 rounded-xl flex items-start gap-3"
+                  >
+                    <AlertCircle size={20} className="text-red-600 shrink-0 mt-0.5" />
+                    <p className="text-sm text-red-700 font-medium">{status.message}</p>
+                  </motion.div>
+                )}
+
+                <form ref={formRef} onSubmit={handleSubmit} className="space-y-5">
                   <div className="grid sm:grid-cols-2 gap-5">
                     <div>
                       <label className="block text-sm font-semibold text-gray-700 mb-2">
