@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import {
   Battery,
   FlaskConical,
-  ChevronRight,
   ArrowRight,
   Package,
 } from "lucide-react";
@@ -22,7 +21,7 @@ const Products = () => {
   return (
     <>
       {/* Hero */}
-      <section className="relative py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-primary-dark overflow-hidden">
+      <section className="relative py-20 bg-linear-to-br from-gray-900 via-gray-800 to-primary-dark overflow-hidden">
         <div className="absolute inset-0">
           <div className="absolute top-10 right-10 w-72 h-72 bg-primary/20 rounded-full blur-3xl" />
           <div className="absolute bottom-10 left-10 w-72 h-72 bg-secondary/15 rounded-full blur-3xl" />
@@ -54,7 +53,7 @@ const Products = () => {
         return (
           <section
             key={cat.id}
-            className={`py-20 ${catIdx % 2 === 0 ? "bg-white" : "bg-gray-50"}`}
+            className={`py-20 ${catIdx % 2 === 0 ? "bg-white" : "bg-gray-500"}`}
           >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <AnimatedSection className="flex items-center gap-4 mb-12">
@@ -81,7 +80,7 @@ const Products = () => {
                       className="group block h-full bg-white border border-gray-100 rounded-2xl p-6 hover:shadow-xl hover:shadow-primary/5 hover:border-primary/20 transition-all duration-300"
                     >
                       <div className="flex items-start justify-between mb-4">
-                        <div className="p-2.5 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-xl group-hover:scale-110 transition-transform">
+                        <div className="p-2.5 bg-linear-to-br from-primary/10 to-secondary/10 rounded-xl group-hover:scale-110 transition-transform">
                           <Icon size={20} className="text-primary" />
                         </div>
                         <span className="text-xs font-medium text-gray-400 bg-gray-100 px-2.5 py-1 rounded-full">
@@ -110,7 +109,7 @@ const Products = () => {
       })}
 
       {/* CTA */}
-      <section className="py-16 bg-gradient-to-r from-primary to-primary-dark">
+      <section className="py-16 bg-linear-to-r from-primary to-primary-dark">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-2xl sm:text-3xl font-extrabold text-white mb-4">
             Can't find what you're looking for?

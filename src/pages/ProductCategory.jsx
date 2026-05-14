@@ -145,17 +145,21 @@ const ProductCategory = () => {
                 {category.products.map((product, i) => (
                   <AnimatedSection key={i} delay={i * 0.05} direction="scale">
                     <div className="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-xl hover:shadow-primary/5 hover:border-primary/20 transition-all duration-300">
-                      {/* Image placeholder */}
+                      {/* Image or placeholder */}
                       <div className="aspect-[4/3] bg-gradient-to-br from-gray-100 to-gray-50 flex items-center justify-center relative overflow-hidden">
-                        <div className="text-center p-4">
-                          <Box
-                            size={40}
-                            className="text-gray-300 mx-auto mb-2 group-hover:text-primary/40 transition-colors"
-                          />
-                          <p className="text-xs text-gray-400 font-medium">
-                            {product.alt}
-                          </p>
-                        </div>
+                        {product.image ? (
+                          product.image
+                        ) : (
+                          <div className="text-center p-4">
+                            <Box
+                              size={40}
+                              className="text-gray-300 mx-auto mb-2 group-hover:text-primary/40 transition-colors"
+                            />
+                            <p className="text-xs text-gray-400 font-medium line-clamp-2">
+                              {product.name}
+                            </p>
+                          </div>
+                        )}
                         <div className="absolute inset-0 bg-gradient-to-t from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                       </div>
 
