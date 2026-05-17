@@ -4,7 +4,6 @@ import CoinCellCase from "../assets/304SS Coin Cell Case (Four Pieces) CR2032.we
 import CoinCellSpacer from "../assets/304SS Coin Cell Spacer CR2032.png";
 import SiliconNanopowder from "../assets/Silicon_Nanopowder .jpeg";
 import BatteryElectrode from "../assets/Battery Electrode (Sodium-ion Negative Electrode).jpeg";
-import BatteryTestingEquipment from "../assets/BATTERY TESTING equipent.avif";
 import ClipOnBatteryLabel from "../assets/Clip-on Battery Label Light.jpeg";
 import CopperFoam from "../assets/Copper foam.jpg.jpeg";
 import GlassFiberMembrane from "../assets/Glass Fiber MembraneSeparator.jpg.jpeg";
@@ -35,7 +34,6 @@ import ZincAnodePlate from "../assets/Zinc anode electrode plate (carbon coated 
 import ZincSheet from "../assets/zinc sheet.jpeg";
 import ZincIonSeparator from "../assets/Zinc-ion Battery Separator Film.jpeg";
 import CoatingEquipment from "../assets/Coating Equipment.png";
-import CoinCellCrimper from "../assets/Coin cell crimper machine.png";
 import DesktopHeated from "../assets/Desktop Horizontal heated Roll.png";
 import GrindingEquipment from "../assets/Grinding equipment.jpeg";
 import NickelRoll from "../assets/High Purity Nickel Foil Roll.png";
@@ -45,6 +43,23 @@ import Neware from "../assets/Neware- CT-4008Q-5V15A - Battery Testing Equipment
 import PETFilm from "../assets/PET Protective film.png";
 import AlFoil from "../assets/Three-Dimensional Porous Aluminum Foil Collector.png";
 import VacuumMixer from "../assets/Vaccum mixer.png";
+import Carbon from "../assets/carbon.jpeg";
+import LithiumT from "../assets/LithiumTitanate.png";
+import SodIonNeg from "../assets/SodiumIonNeg.png";
+import SiliconCarbon from "../assets/Natural Graphite image.png";
+import NiCoAl from "../assets/ni95.png";
+import CopperFoil from "../assets/CopperFoil.png";
+import ElecBottle from "../assets/Electrolyte bottle.jpeg";
+import PETFilm1 from "../assets/PET Protective film_1.png";
+import CondCuFoil from "../assets/ConductiveCuFoil.png";
+import EightChannels from "../assets/EightChannels.png";
+import BatteryAnalyser from "../assets/BatteryAnalyser.png";
+import Viscometer from "../assets/viscometer.png";
+import Welding from "../assets/welding.png";
+import CylinderCase from "../assets/CylinderCase.png";
+import CuMesh from "../assets/CuMesh.png";
+import CarbonFiber from "../assets/CarbonFibCon.png";
+import GraphiteElectrode from "../assets/GraphiteElSheet.png";
 
 const imgClass = "w-full h-full object-cover";
 
@@ -101,13 +116,27 @@ export const productCategories = [
             name: "Silicon Nanopowder (80-100nm)",
             image: <motion.img src={SiliconNanopowder} alt="Silicon Nanopowder 80-100nm" className={imgClass} />,
           },
-          { name: "Sodium Ion Hard Carbon" },
-          { name: "Natural Graphite" },
-          { name: "Imported Activated Carbon" },
-          { name: "Lithium Titanate" },
-          { name: "Sodium Ion Negative Electrode Strip" },
-          { name: "Silicon Carbon Alloy" },
-          { name: "Nickel Cobalt Aluminium Ni95" },
+          { name: "Sodium Ion Hard Carbon",
+            image: <motion.img src={Carbon} alt="Sodium Ion Hard Carbon" className={imgClass} />,
+           },
+          { name: "Natural Graphite",
+            image: <motion.img src={Carbon} alt="Natural Graphite" className={imgClass} />,
+           },
+          { name: "Imported Activated Carbon",
+            image: <motion.img src={Carbon} alt="Imported Activated Carbon" className={imgClass} />,
+           },
+          { name: "Lithium Titanate",
+            image: <motion.img src={LithiumT} alt="Lithium Titanate" className={imgClass} />,
+           },
+          { name: "Sodium Ion Negative Electrode Strip",
+            image: <motion.img src={SodIonNeg} alt="Sodium Ion Negative Electrode Strip" className={imgClass} />,
+           },
+          { name: "Silicon Carbon Alloy",
+            image: <motion.img src={SiliconCarbon} alt="Silicon Carbon Alloy" className={imgClass} />,
+           },
+          { name: "Nickel Cobalt Aluminium Ni95",
+            image: <motion.img src={NiCoAl} alt="Nickel Cobalt Aluminium Ni95" className={imgClass} />,
+           },
         ],
       },
       {
@@ -126,8 +155,12 @@ export const productCategories = [
             name: "304SS Coin Cell Spacer CR2032 / 2025 / 2016 / 2430",
             image: <motion.img src={CoinCellSpacer} alt="304SS Coin Cell Spacer CR2032" className={imgClass} />,
           },
-          { name: "316L SS Coin Cell Case Set (Four Pieces) CR2032 / 2025 / 2016 / 2430" },
-          { name: "316 SS Coin Cell Case Spacer / Sealing Spacer" },
+          { name: "316L SS Coin Cell Case Set (Four Pieces) CR2032 / 2025 / 2016 / 2430",
+            image: <motion.img src={CoinCellCase} alt="316L SS" className={imgClass} />,
+           },
+          { name: "316 SS Coin Cell Case Spacer / Sealing Spacer",
+            image: <motion.img src={CoinCellSpacer} alt="316 SS" className={imgClass} />,
+           },
           { name: "Sodium Chip (Battery Negative Piece / Na Chip)",
             image: <motion.img src={SodiumChipNegativePiece} alt="Sodium Chip (Battery Negative Piece Na Chip)" className={imgClass} />,
            },
@@ -137,7 +170,9 @@ export const productCategories = [
           { name: "Battery Electrode (Sodium-ion Negative Electrode) – With Aluminum Foil",
             image: <motion.img src={BatteryElectrode} alt="Battery Electrode Sodium-ion Negative Electrode With Aluminum Foil" className={imgClass} />,
           },
-          { name: "Nickel Plated Battery Case" },
+          { name: "Nickel Plated Battery Case",
+            image: <motion.img src={CoinCellCase} alt="Nickel Plated Battery Case" className={imgClass} />,
+           },
           {
             name: "304 Stainless Steel Sheet - Multi-fold (Wavy Spring)",
             image: <motion.img src={StainlessSteelSheet} alt="304 Stainless Steel Sheet Multi-fold Wavy Spring" className={imgClass} />,
@@ -155,8 +190,12 @@ export const productCategories = [
           { name: "Lithium Electrolytes",
             image: <motion.img src={LithiumElectrolytes} alt="Lithium Electrolytes" className={imgClass} />,
            },
-          { name: "Sodium Electrolytes" },
-          { name: "Other Electrolytes" },
+          { name: "Sodium Electrolytes",
+            image: <motion.img src={ElecBottle} alt="Sodium Electrolytes" className={imgClass} />,
+           },
+          { name: "Other Electrolytes",
+            image: <motion.img src={ElecBottle} alt="Other Electrolytes" className={imgClass} />,
+           },
         ],
       },
       {
@@ -183,28 +222,48 @@ export const productCategories = [
         name: "Current Collectors",
         description: "Precision-engineered foils, meshes, and conductive substrates for efficient current collection.",
         products: [
-          { name: "PET Composite Copper Foil (CU+PET+CU)" },
+          { name: "PET Composite Copper Foil (CU+PET+CU)",
+            image: <motion.img src={PETFilm1} alt="PET Composite Copper Foil (CU+PET+CU)" className={imgClass} />,
+           },
           { name: "Lithium Ion Battery Cu Foil Roll 8um",
             image: <motion.img src={LithiumIonFoil} alt="Lithium Ion Battery Cu Foil Roll 8um" className={imgClass} />,
            },
-          { name: "Three-Dimensional Porous Copper Foil" },
-          { name: "Conductive Carbon Coated Copper Foil" },
-          { name: "Aluminum Foil For Lithium Battery 12um" },
+          { name: "Three-Dimensional Porous Copper Foil",
+            image: <motion.img src={CopperFoil} alt="Three-Dimensional Porous Copper Foil" className={imgClass} />,
+           },
+          { name: "Conductive Carbon Coated Copper Foil",
+            image: <motion.img src={CondCuFoil} alt="Conductive Carbon Coated Copper Foil" className={imgClass} />,
+           },
+          { name: "Aluminum Foil For Lithium Battery 12um",
+            image: <motion.img src={AlFoil} alt="Aluminum Foil For Lithium Battery 12um" className={imgClass} />,
+           },
           { name: "Three-Dimensional Porous Aluminum Foil Collector",
             image: <motion.img src={AlFoil} alt="Three-Dimensional Porous" className={imgClass} />,
            },
-          { name: "Copper Mesh Foil Width 200mm" },
-          { name: "Aluminium Mesh Foil Width 200mm" },
+          { name: "Copper Mesh Foil Width 200mm",
+            image: <motion.img src={CuMesh} alt="Copper Mesh Foil" className={imgClass} />,
+           },
+          { name: "Aluminium Mesh Foil Width 200mm",
+            image: <motion.img src={AlFoil} alt="Aluminium Mesh Foil" className={imgClass} />,
+           },
           { name: "High Purity Nickel Foil Roll",
             image: <motion.img src={NickelRoll} alt="High Purity Nickel Foil Roll" className={imgClass} />,
            },
-          { name: "Carbon Fiber Conductive Material" },
-          { name: "Carbon Fiber Cloth Conductive Material" },
-          { name: "Graphite Electrode Sheet 99.99%" },
+          { name: "Carbon Fiber Conductive Material",
+            image: <motion.img src={CarbonFiber} alt="Carbon Fiber Conductive Material" className={imgClass} />,
+           },
+          { name: "Carbon Fiber Cloth Conductive Material",
+            image: <motion.img src={CarbonFiber} alt="Carbon Fiber Cloth Conductive Material" className={imgClass} />,
+           },
+          { name: "Graphite Electrode Sheet 99.99%",
+            image: <motion.img src={GraphiteElectrode} alt="Graphite Electrode Sheet 99.99%" className={imgClass} />,
+           },
           { name: "Lithium Ion Battery Copper Foil 8um",
             image: <motion.img src={LithiumIonFoil} alt="Lithium Ion Battery Copper Foil 8um" className={imgClass} />,
            },
-          { name: "Lithium Ion Battery Aluminium Foil 16um" },
+          { name: "Lithium Ion Battery Aluminium Foil 16um",
+            image: <motion.img src={AlFoil} alt="Lithium Ion Battery Aluminium Foil 16um" className={imgClass} />,
+           },
         ],
       },
       {
@@ -228,7 +287,9 @@ export const productCategories = [
         name: "Other Materials",
         description: "Supplementary battery materials including cell cases, solvents, and protective films.",
         products: [
-          { name: "18650 Cylinder Cell Case" },
+          { name: "18650 Cylinder Cell Case",
+            image: <motion.img src={CylinderCase} alt="Cylinder Cell Case" className={imgClass} />,
+           },
           { name: "N-Methylpyrrolidone (NMP)",
             image: <motion.img src={Methyl} alt="N-Methylpyrrolidone (NMP)" className={imgClass} />,
            },
@@ -253,15 +314,24 @@ export const productCategories = [
           { name: "Vacuum Mixer",
             image: <motion.img src={VacuumMixer} alt="Vacuum Mixer" className={imgClass} />,
            },
-          { name: "Automatic Coating Machine" },
-          { name: "Automatic Coating Infrared Dryer" },
+          { name: "Automatic Coating Machine",
+            image: <motion.img src={CoatingEquipment} alt="Automatic Coating Machine" className={imgClass} />,
+           },
+          { name: "Automatic Coating Infrared Dryer",
+            image: <motion.img src={CoatingEquipment} alt="Automatic Coating Infrared Dryer" className={imgClass} />,
+           },
           { name: "Desktop Horizontal Heated Roll",
             image: <motion.img src={DesktopHeated} alt="Desktop Horizontal Heated Roll" className={imgClass} />,
            },
-          { name: "Table Top Heated Roller Press" },
-          { name: "Film Coating Equipment" },
-          { name: "Welding Equipment" },
-          { name: "Encapsulation Equipment" },
+          { name: "Table Top Heated Roller Press",
+            image: <motion.img src={HeatPressTablet} alt="Table Top Heated Roller Press" className={imgClass} />,
+           },
+          { name: "Film Coating Equipment",
+            image: <motion.img src={CoatingEquipment} alt="Film Coating Equipment" className={imgClass} />,
+           },
+          { name: "Welding Equipment",
+            image: <motion.img src={Welding} alt="Welding Equipment" className={imgClass} />,
+           },
         ],
       },
       {
@@ -272,12 +342,16 @@ export const productCategories = [
           { name: "Neware CT-4008Q-5V15A Battery Testing Equipment",
             image: <motion.img src={Neware} alt="Neware CT-4008Q-5V15A" className={imgClass} />,
            },
-          { name: "Movable Rack for Coin Cell Tester" },
-          { name: "8 Channels Coin Cell Testing Board for CR2016" },
-          { name: "Battery Analyser for Coin Cell" },
-          { name: "Coin Cell Testing Clamps" },
+          { name: "8 Channels Coin Cell Testing Board for CR2016",
+            image: <motion.img src={EightChannels} alt="8 Channels Coin Cell" className={imgClass} />,
+           },
+          { name: "Battery Analyser for Coin Cell",
+            image: <motion.img src={BatteryAnalyser} alt="Battery Analyser for Coin Cell" className={imgClass} />,
+           },
           { name: "Benchtop Battery Testing Thermal Chamber" },
-          { name: "Viscometer" },
+          { name: "Viscometer",
+            image: <motion.img src={Viscometer} alt="Viscometer" className={imgClass} />,
+           },
           { name: "Moisture Testing Equipment" },
         ],
       },
@@ -305,7 +379,9 @@ export const productCategories = [
           { name: "Table Glove Box",
             image: <motion.img src={GloveBox} alt="Table Glove Box" className={imgClass} />,
            },
-          { name: "Standard Glove Box" },
+          { name: "Standard Glove Box",
+            image: <motion.img src={GloveBox} alt="Standard Glove Box" className={imgClass} />,
+           },
         ],
       },
       {
@@ -316,8 +392,12 @@ export const productCategories = [
           { name: "Tube Furnace",
             image: <motion.img src={LabFurnace} alt="Tube Furnace" className={imgClass} />
            },
-          { name: "Atmosphere Furnace" },
-          { name: "CVD & PECVD & ALD System" },
+          { name: "Atmosphere Furnace",
+            image: <motion.img src={LabFurnace} alt="Atmosphere Furnace" className={imgClass} />,
+           },
+          { name: "CVD & PECVD & ALD System",
+            image: <motion.img src={LabFurnace} alt="CVD & PECVD & ALD System" className={imgClass} />,
+           },
         ],
       },
       {
@@ -352,7 +432,7 @@ export const companyInfo = {
   subtitle: "Battery Consumable Solutions - Your Trusted Supplier",
   phone: "+91 9953242466",
   email: "aksheykaushal@gmail.com",
-  contactEmail: "pulkitsinhaor@gmail.com",
+  contactEmail: "aksheykaushal@gmail.com",
   address: {
     line1: "Flat No T4, Block 3, Rohit Kunj Local Shopping Center",
     line2: "3rd Floor, Veerhemu Marg, Pitampura",
