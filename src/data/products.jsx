@@ -431,8 +431,7 @@ export const companyInfo = {
   tagline: "One-Stop Provider for Energy Research",
   subtitle: "Battery Consumable Solutions - Your Trusted Supplier",
   phone: "+91 9953242466",
-  email: "aksheykaushal@gmail.com",
-  contactEmail: "aksheykaushal@gmail.com",
+  contactEmail: "sales@precisionbioelectronics.com",
   address: {
     line1: "Flat No T4, Block 3, Rohit Kunj Local Shopping Center",
     line2: "3rd Floor, Veerhemu Marg, Pitampura",

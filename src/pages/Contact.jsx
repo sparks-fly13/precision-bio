@@ -14,7 +14,7 @@ import {
   Building,
   FileText,
 } from "lucide-react";
-import { LinkedinIcon, TwitterIcon, FacebookIcon, InstagramIcon } from "../components/SocialIcons";
+import { LinkedinIcon, TwitterIcon, FacebookIcon, InstagramIcon, WhatsAppIcon } from "../components/SocialIcons";
 import AnimatedSection from "../components/AnimatedSection";
 import { companyInfo } from "../data/products";
 
@@ -157,34 +157,51 @@ const Contact = () => {
       <section className="py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-16 relative z-10">
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {contactDetails.map((item, i) => (
-              <AnimatedSection key={item.label} delay={i * 0.1} direction="scale">
-                <div className="bg-white rounded-2xl border border-gray-100 p-6 shadow-lg hover:shadow-xl transition-shadow h-full">
-                  <div
-                    className={`inline-flex p-3 bg-linear-to-br ${item.color} rounded-xl mb-4`}
-                  >
-                    <item.icon size={20} className="text-white" />
-                  </div>
-                  <p className="text-xs text-gray-500 font-semibold uppercase tracking-wider mb-1">
-                    {item.label}
-                  </p>
-                  {item.href ? (
-                    <a
-                      href={item.href}
-                      target={item.label === "Address" ? "_blank" : undefined}
-                      rel={item.label === "Address" ? "noopener noreferrer" : undefined}
-                      className="text-sm font-medium text-gray-800 hover:text-primary transition-colors wrap-break-word"
-                    >
-                      {item.value}
-                    </a>
-                  ) : (
-                    <p className="text-sm font-medium text-gray-800">
-                      {item.value}
+            {contactDetails.map((item, i) => {
+              const isPhone = item.label === "Phone";
+              const phoneDigits = companyInfo.phone.replace(/[^\d]/g, "");
+              return (
+                <AnimatedSection key={item.label} delay={i * 0.1} direction="scale">
+                  <div className="bg-white rounded-2xl border border-gray-100 p-6 shadow-lg hover:shadow-xl transition-shadow h-full">
+                    <div className="flex items-center gap-2 mb-4">
+                      <div
+                        className={`inline-flex p-3 bg-linear-to-br ${item.color} rounded-xl`}
+                      >
+                        <item.icon size={20} className="text-white" />
+                      </div>
+                      {isPhone && (
+                        <a
+                          href={`https://wa.me/${phoneDigits}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label="Chat on WhatsApp"
+                          className="inline-flex p-3 bg-linear-to-br from-green-500 to-green-600 rounded-xl text-white hover:opacity-90 transition-opacity"
+                        >
+                          <WhatsAppIcon size={20} />
+                        </a>
+                      )}
+                    </div>
+                    <p className="text-xs text-gray-500 font-semibold uppercase tracking-wider mb-1">
+                      {item.label}
                     </p>
-                  )}
-                </div>
-              </AnimatedSection>
-            ))}
+                    {item.href ? (
+                      <a
+                        href={item.href}
+                        target={item.label === "Address" ? "_blank" : undefined}
+                        rel={item.label === "Address" ? "noopener noreferrer" : undefined}
+                        className="text-sm font-medium text-gray-800 hover:text-primary transition-colors wrap-break-word"
+                      >
+                        {item.value}
+                      </a>
+                    ) : (
+                      <p className="text-sm font-medium text-gray-800">
+                        {item.value}
+                      </p>
+                    )}
+                  </div>
+                </AnimatedSection>
+              );
+            })}
           </div>
         </div>
       </section>

@@ -127,27 +127,28 @@ const Hero = () => (
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="w-64 h-64 rounded-full bg-gradient-to-br from-primary/40 to-secondary/40 blur-2xl animate-pulse" />
             </div>
-            {/* Floating cards */}
-            {[
-              { icon: Battery, label: "Battery Materials", x: "10%", y: "15%", delay: 0.4 },
-              { icon: FlaskConical, label: "Lab Equipment", x: "55%", y: "5%", delay: 0.6 },
-              { icon: Atom, label: "Nano Materials", x: "65%", y: "55%", delay: 0.8 },
-              { icon: Target, label: "Quality Assured", x: "5%", y: "60%", delay: 1 },
-            ].map((item) => (
-              <motion.div
-                key={item.label}
-                initial={{ opacity: 0, scale: 0 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: item.delay }}
-                className="absolute bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 shadow-xl"
-                style={{ left: item.x, top: item.y }}
-              >
-                <item.icon size={28} className="text-primary-light mb-2" />
-                <p className="text-white text-xs font-medium whitespace-nowrap">
-                  {item.label}
-                </p>
-              </motion.div>
-            ))}
+            {/* Feature cards — 2x2 grid */}
+            <div className="relative grid grid-cols-2 gap-6 h-full content-center">
+              {[
+                { icon: Battery, label: "Battery Materials", delay: 0.4 },
+                { icon: FlaskConical, label: "Lab Equipment", delay: 0.6 },
+                { icon: Target, label: "Quality Assured", delay: 0.8 },
+                { icon: Atom, label: "Nano Materials", delay: 1 },
+              ].map((item) => (
+                <motion.div
+                  key={item.label}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5, delay: item.delay }}
+                  className="aspect-square flex flex-col items-center justify-center text-center bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 shadow-xl"
+                >
+                  <item.icon size={32} className="text-primary-light mb-3" />
+                  <p className="text-white text-sm font-medium">
+                    {item.label}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </motion.div>
       </div>

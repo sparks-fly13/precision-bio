@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation  } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Search, X, Menu, ChevronDown, ChevronRight } from "lucide-react";
-import { productCategories } from "../data/products";
+import { Search, X, Menu, ChevronDown, ChevronRight, Phone, Mail } from "lucide-react";
+import { productCategories, companyInfo } from "../data/products";
 import SearchOverlay from "./SearchOverlay";
 import Logo from "../assets/Logo.png";
 
@@ -15,7 +15,6 @@ const Navbar = () => {
   const productsRef = useRef(null);
   const productsTimeout = useRef(null);
   const location = useLocation();
-  const navigate = useNavigate();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -24,8 +23,11 @@ const Navbar = () => {
   }, []);
 
   useEffect(() => {
-    setMobileOpen(false);
-    setProductsOpen(false);
+    const t = setTimeout(() => {
+      setMobileOpen(false);
+      setProductsOpen(false);
+    }, 0);
+    return () => clearTimeout(t);
   }, [location]);
 
   const handleProductsEnter = () => {
@@ -54,7 +56,7 @@ const Navbar = () => {
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
-            ? "bg-white/95 backdrop-blur-md shadow-lg py-2"
+            ? "bg-white/95 backdrop-blur-md py-2"
             : "bg-white/80 backdrop-blur-sm py-4"
         }`}
       >
@@ -62,12 +64,12 @@ const Navbar = () => {
           <div className="flex items-center justify-between">
             {/* Logo */}
             <Link to="/" className="flex items-center gap-3 shrink-0">
-              <img src={Logo} alt="Precision Bioelectronics" className="h-12 w-auto" />
+              <img src={Logo} alt="Precision Bioelectronics" className="h-16 w-auto" />
               <div className="hidden sm:block">
-                <h1 className="text-lg font-bold text-primary leading-tight">
+                <h1 className="text-2xl font-bold text-primary leading-tight">
                   Precision
                 </h1>
-                <p className="text-xs font-medium text-secondary -mt-0.5">
+                <p className="text-sm font-medium text-secondary -mt-0.5">
                   Bioelectronics
                 </p>
               </div>
@@ -109,7 +111,7 @@ const Navbar = () => {
                           animate={{ opacity: 1, y: 0 }}
                           exit={{ opacity: 0, y: 8 }}
                           transition={{ duration: 0.2 }}
-                          className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[700px] bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden"
+                          className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-175 bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden"
                         >
                           <div className="p-6">
                             <div className="grid grid-cols-2 gap-6">
@@ -178,6 +180,24 @@ const Navbar = () => {
 
             {/* Right side */}
             <div className="flex items-center gap-2">
+              {/* Contact info — stacked email + phone (desktop only) */}
+              <div className="hidden xl:flex flex-col items-end pr-3 mr-1 border-r border-gray-200">
+                <a
+                  href={`mailto:${companyInfo.contactEmail}`}
+                  className="flex items-center gap-1.5 text-xs font-medium text-gray-700 hover:text-primary transition-colors"
+                >
+                  <Mail size={13} className="text-primary" />
+                  {companyInfo.contactEmail}
+                </a>
+                <a
+                  href={`tel:${companyInfo.phone.replace(/\s/g, "")}`}
+                  className="flex items-center gap-1.5 text-xs font-medium text-gray-700 hover:text-primary transition-colors mt-0.5"
+                >
+                  <Phone size={13} className="text-primary" />
+                  {companyInfo.phone}
+                </a>
+              </div>
+
               <button
                 onClick={() => setSearchOpen(true)}
                 className="p-2.5 rounded-xl text-gray-600 hover:text-primary hover:bg-primary/5 transition-all duration-200"
