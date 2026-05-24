@@ -38,7 +38,7 @@ const Footer = () => {
               <img
                 src={Logo}
                 alt="Precision Bioelectronics"
-                className="h-10 w-auto brightness-0 invert"
+                className="h-12 w-auto rounded-lg bg-white p-1"
               />
               <div>
                 <h3 className="text-base font-bold leading-tight">
